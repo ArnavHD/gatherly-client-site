@@ -68,9 +68,12 @@ const NavBar = () => {
           </h3>
         </Link>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-4">
         <NavLink to={"/register"} className="btn">
           Register
+        </NavLink>
+        <NavLink to={"/login"} className="btn">
+          Login
         </NavLink>
       </div>
     </div>
