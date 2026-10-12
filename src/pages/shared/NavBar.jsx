@@ -1,8 +1,22 @@
 // import React from 'react';
+import { motion } from "motion/react";
 
+import { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const NavBar = () => {
+  const { user, signOutUser } = use(AuthContext);
+
+  const handleSignOut = ()=>{
+    signOutUser()
+    .then(()=>{
+      console.log("Signed out user", user);
+    })
+    .catch(error =>{
+      console.log(error);
+    })
+  }
   const links = (
     <>
       <div className="flex gap-2.5">
@@ -30,7 +44,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar bg-black shadow-sm">
+    <div className="navbar px-7 bg-black shadow-sm">
       <div className="navbar-start hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
@@ -62,19 +76,92 @@ const NavBar = () => {
           </ul>
         </div>
         <Link to={"/"}>
-          <h3 className="text-4xl outfit">
+          {/* <h3 className="text-4xl outfit">
             <span className="text-blue-300 font-semibold">Gather</span>
             <span className="text-orange-400 font-semibold">ly</span>
-          </h3>
+          </h3> */}
+          {/* <motion.h1
+            className="text-4xl font-bold bg-linear-to-r from-white via-yellow-300 to-white bg-clip-text text-transparent bg-[length:200%_100%]"
+            animate={{
+              backgroundPosition: ["0% 50%", "200% 50%"],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            Gatherly
+          </motion.h1> */}
+          <motion.h1
+            className="
+        text-4xl p-1 font-bold
+        bg-linear-to-r
+        from-blue-500
+        via-amber-300
+        to-red-500
+        bg-clip-text
+        text-transparent
+        bg-size-[300%_100%]
+      "
+            animate={{
+              backgroundPosition: [
+                "-100% 50%",
+                "0% 50%",
+                "100% 50%",
+                "200% 50%",
+                "200% 50%",
+                "-100% 50%",
+              ],
+              textShadow: [
+                "0 0 0px rgba(59,130,246,0)",
+                "0 0 18px rgba(59,130,246,0.8)",
+                "0 0 22px rgba(252,211,77,0.9)",
+                "0 0 18px rgba(239,68,68,0.8)",
+                "0 0 0px rgba(239,68,68,0)",
+                "0 0 0px rgba(239,68,68,0)",
+              ],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "linear",
+              times: [0, 0.2, 0.4, 0.6, 0.65, 1],
+            }}
+          >
+            Gatherly
+          </motion.h1>
+          {/* <motion.div
+            className="w-16 h-2 bg-white"
+            animate={{ x: [0, 80, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          ></motion.div> */}
         </Link>
       </div>
       <div className="navbar-end gap-4">
-        <NavLink to={"/register"} className="btn">
-          Register
-        </NavLink>
-        <NavLink to={"/login"} className="btn">
-          Login
-        </NavLink>
+        {user ? (
+          <div className="flex justify-center items-center gap-4">
+            <button onClick={handleSignOut} className="btn">
+              Sign Out
+            </button>
+            <Link>
+              <img
+                className="rounded-full w-12 h-12"
+                src="https://i.ibb.co/1J2ZZ1MK/back-pic.jpg"
+                alt=""
+              />
+            </Link>
+          </div>
+        ) : (
+          <>
+            <NavLink to={"/register"} className="btn">
+              Register
+            </NavLink>
+            <NavLink to={"/login"} className="btn">
+              Login
+            </NavLink>
+          </>
+        )}
       </div>
     </div>
   );

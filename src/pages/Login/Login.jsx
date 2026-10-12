@@ -5,7 +5,21 @@ import { Link } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const Login = () => {
-    const { createUser } = use(AuthContext); 
+
+    const { userSignIn, signInWithGoogle } = use(AuthContext); 
+
+
+
+    const handleGoogleSignIn = () => {
+      signInWithGoogle()
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
         const handleLogIn = e =>{
             e.preventDefault();
             const form = e.target;
@@ -13,12 +27,12 @@ const Login = () => {
             const password = form.password.value;
             console.log(email, password);
     
-            // create user
-            createUser(email, password)
-            .then(result=>{
+            // sign in user
+            userSignIn(email, password)
+            .then(result =>{
                 console.log(result.user);
             })
-            .catch(error =>{
+            .catch(error=>{
                 console.log(error);
             })
         }
@@ -67,7 +81,10 @@ const Login = () => {
                 </Link>
               </h3>
               <div className="divider">OR</div>
-              <button className="btn bg-white text-black border-[#e5e5e5]">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn bg-white text-black border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"
