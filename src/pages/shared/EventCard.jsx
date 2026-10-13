@@ -42,7 +42,7 @@ const EventCard = ({event}) => {
           </div>
           <div className="card-actions">
             <Link to={`/events/${_id}`}>
-              <button className="btn bg-mauve-900">Join Now</button>
+              <button className="btn bg-mauve-900">View Details</button>
             </Link>
           </div>
         </div>
