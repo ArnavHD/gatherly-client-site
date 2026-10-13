@@ -1,6 +1,8 @@
 // import React from 'react';
+import axios from 'axios';
 import useAuth from '../hooks/useAuth';
 import { useParams } from 'react-router';
+import Swal from 'sweetalert2';
 
 const JoinEvent = () => {
     const {user } = useAuth();
@@ -22,7 +24,28 @@ const JoinEvent = () => {
             name,
             age,
         }
-
+        axios
+          .post("http://localhost:3000/applications", application)
+          .then((res) => {
+            console.log(res.data);
+            if(res.data.insertedId){
+                Swal.fire({
+                  title: "Application Successful",
+                  icon: "success",
+                  draggable: true,
+                });
+            }
+            else{
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Something went wrong!",
+                });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
 
     }
@@ -44,16 +67,16 @@ const JoinEvent = () => {
             <label className="label mt-10">Your Name</label>
             <input
               type="text"
-              name='name'
-              className="input [appearance:textfield]"
+              name="name"
+              className="input "
               placeholder="Enter Your Name"
             />
 
             <label className="label">Your Age</label>
             <input
               type="number"
-              name='age'
-              className="input"
+              name="age"
+              className="input [appearance:textfield]"
               placeholder="Enter Your Age (eg. 24 or 27)"
             />
 
@@ -61,10 +84,14 @@ const JoinEvent = () => {
             <input
               type="email"
               className="input"
-              name='email'
+              name="email"
               placeholder="Enter Your Email"
             />
-            <input className='btn btn-neutral' type="submit" placeholder='Submit' />
+            <input
+              className="btn btn-neutral"
+              type="submit"
+              placeholder="Submit"
+            />
           </fieldset>
         </form>
       </div>

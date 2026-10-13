@@ -10,6 +10,7 @@ import AllEventsContainer from "../pages/Events/AllEventsContainer";
 import EventDetails from "../pages/EventDetails/EventDetails";
 import PrivateRouts from "../routs/PrivateRouts";
 import JoinEvent from "../JoinEvent/JoinEvent";
+import MyApplications from "../pages/MyApplications/MyApplications";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "myApplications",
+        element: (
+          <PrivateRouts>
+            <MyApplications></MyApplications>
+          </PrivateRouts>
+        ),
       },
     ],
   },
@@ -52,7 +61,11 @@ const router = createBrowserRouter([
       },
       {
         path: "joinEvent/:id",
-        Component: JoinEvent,
+        element: (
+          <PrivateRouts>
+            <JoinEvent></JoinEvent>
+          </PrivateRouts>
+        ),
       },
     ],
   },

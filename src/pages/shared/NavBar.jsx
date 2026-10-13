@@ -40,6 +40,30 @@ const NavBar = () => {
             Events
           </NavLink>
         </li>
+        {user && (
+          <>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "underline decoration-3 underline-offset-5" : ""
+                }
+                to={"/addEvents"}
+              >
+                <h3 className="">Add Events</h3>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "underline decoration-3 underline-offset-5" : ""
+                }
+                to={"/myApplications"}
+              >
+                <h3 className="">My Applications</h3>
+              </NavLink>
+            </li>
+          </>
+        )}
       </div>
     </>
   );
