@@ -1,13 +1,32 @@
-import React from "react";
+// import React from "react";
 import { BiCategory } from "react-icons/bi";
+import { DiRequirejs } from "react-icons/di";
 import { GoOrganization } from "react-icons/go";
 import { GrStatusGood } from "react-icons/gr";
 import { IoTimeOutline } from "react-icons/io5";
-import { MdOutlineDateRange, MdOutlineDescription, MdOutlineLocationOn } from "react-icons/md";
-import { useLoaderData } from "react-router";
+import {
+  MdOutlineDateRange,
+  MdOutlineDescription,
+  MdOutlineLocationOn,
+} from "react-icons/md";
+import { Link, useLoaderData, useParams } from "react-router";
+import useAuth from "../../hooks/useAuth";
 
 const EventDetails = () => {
-  const { title, description, eventDate, image, organizer, category, status, location } = useLoaderData();
+  const { id: eventId } = useParams();
+  const {user} = useAuth();
+  console.log(eventId, user);
+  const {
+    title,
+    description,
+    requirements,
+    eventDate,
+    image,
+    organizer,
+    category,
+    status,
+    location,
+  } = useLoaderData();
   const date = new Date(eventDate);
 
   const month = date.toLocaleString("en-US", { month: "short" });
@@ -85,12 +104,33 @@ const EventDetails = () => {
           <textarea
             value={description}
             readOnly
-            className="textarea textarea-md w-full bg-base-100/60"
+            className="textarea textarea-md w-full bg-base-100/60 pointer-events-none"
           ></textarea>
 
-          
+          <div className="flex gap-3.5">
+            <div className="flex gap-2.5 text-white/40">
+              <DiRequirejs size={20} />
+              <h2>Requirements:</h2>
+            </div>
+            <div>
+              {requirements.map((requirement, index) => (
+                <li key={index} className="list-row flex gap-2">
+                  <div className="text-xm font-thin tabular-nums">
+                    {index + 1}.
+                  </div>
+
+                  <div className="list-col-grow">
+                    <div>{requirement}</div>
+                  </div>
+                </li>
+              ))}
+            </div>
+          </div>
+
           <div className="card-actions justify-end">
-            <button className="btn bg-black/80">Join Event</button>
+            <Link to={`/events/joinEvent/${eventId}`}>
+              <button className="btn bg-black/80">Join Event</button>
+            </Link>
           </div>
         </div>
       </div>

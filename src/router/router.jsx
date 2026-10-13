@@ -8,6 +8,8 @@ import EventsLayout from "../layouts/EventsLayout";
 // import AllEvents from "../pages/Events/AllEvents";
 import AllEventsContainer from "../pages/Events/AllEventsContainer";
 import EventDetails from "../pages/EventDetails/EventDetails";
+import PrivateRouts from "../routs/PrivateRouts";
+import JoinEvent from "../JoinEvent/JoinEvent";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +41,18 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/events"),
       },
       {
-        path: "/events/:id",
-        Component: EventDetails,
-        loader: ({params}) =>
+        path: "event/:id",
+        element: (
+          <PrivateRouts>
+            <EventDetails></EventDetails>
+          </PrivateRouts>
+        ),
+        loader: ({ params }) =>
           fetch(`http://localhost:3000/events/${params.id}`),
+      },
+      {
+        path: "joinEvent/:id",
+        Component: JoinEvent,
       },
     ],
   },
