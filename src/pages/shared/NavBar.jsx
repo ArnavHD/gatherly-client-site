@@ -47,7 +47,7 @@ const NavBar = () => {
                 className={({ isActive }) =>
                   isActive ? "underline decoration-3 underline-offset-5" : ""
                 }
-                to={"/addEvents"}
+                to={"/addEvent"}
               >
                 <h3 className="">Add Events</h3>
               </NavLink>

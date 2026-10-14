@@ -11,6 +11,7 @@ import EventDetails from "../pages/EventDetails/EventDetails";
 import PrivateRouts from "../routs/PrivateRouts";
 import JoinEvent from "../JoinEvent/JoinEvent";
 import MyApplications from "../pages/MyApplications/MyApplications";
+import AddEvents from "../pages/AddEvents/AddEvents";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "addEvent",
+        element: <PrivateRouts><AddEvents></AddEvents></PrivateRouts>
       },
       {
         path: "/login",

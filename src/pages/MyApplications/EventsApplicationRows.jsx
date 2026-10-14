@@ -1,7 +1,7 @@
 import React from "react";
 
 const EventsApplicationRows = ({ application, index }) => {
-    const {} = application;
+    // const {} = application;
   return (
     <tr>
         <th>
