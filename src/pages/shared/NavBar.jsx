@@ -62,6 +62,16 @@ const NavBar = () => {
                 <h3 className="">My Applications</h3>
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "underline decoration-3 underline-offset-5" : ""
+                }
+                to={"/myPostedEvents"}
+              >
+                <h3 className="">My Posted Events</h3>
+              </NavLink>
+            </li>
           </>
         )}
       </div>

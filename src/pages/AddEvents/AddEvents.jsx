@@ -1,14 +1,66 @@
 // import React from 'react';
 
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const AddEvents = () => {
-
     const {user} = useAuth();
+    
+    const handleAddEvent = e =>{
+       e.preventDefault();
+       const form = e.target;
+       const formData = new FormData(form);
+       const data = Object.fromEntries(formData.entries());
+      //  console.log(data); 
+
+      const eventData = {
+        title: data.title,
+        description: data.description,
+        location: {
+          type: data.locationType,
+          address: data.address,
+        },
+        eventDate: data.eventDate,
+        deadline: data.deadline,
+        organizer: {
+          name: data.name,
+          email: data.email,
+        },
+        image: data.image,
+        maxParticipants: data.maxParticipants,
+        requirements: data.requirements.split(",").map((item) => item.trim()),
+        participants: [],
+        status: data.status,
+      };
+      // save event to the database
+      axios
+        .post("http://localhost:3000/events", eventData)
+        .then((res) => {
+          if(res.data.insertedId){
+            Swal.fire({
+              title: "Event has been added",
+              icon: "success",
+              draggable: true,
+            });
+          }
+        })
+        .catch((error) => {
+          if(error){
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+              footer: {error},
+            });
+          }
+        });
+
+    }
 
     return (
       <div
-        className="relative z-10 w-screen pb-10 mx-auto bg-center pt-5 bg-cover bg-no-repeat"
+        className="relative z-10 w-full pb-10 mx-auto bg-center pt-5 bg-cover bg-no-repeat"
         style={{
           backgroundImage:
             "url('https://i.ibb.co/Q3gNhY1f/Campus-Commons-Conversation.png')",
@@ -19,7 +71,7 @@ const AddEvents = () => {
           <h1 className="text-4xl text-white mb-10 libre text-center">
             Please Fill The Form
           </h1>
-          <form className=" max-w-2xl mx-auto">
+          <form onSubmit={handleAddEvent} className=" max-w-2xl mx-auto">
             <fieldset className="fieldset bg-base-200/80 border-base-300 rounded-box  border p-4">
               <div className="flex-col md:flex md:flex-row gap-3">
                 <div className="w-1/2 flex flex-col gap-3">
@@ -76,12 +128,22 @@ const AddEvents = () => {
                       className="input"
                     />
                   </div>
+
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Join Deadline</label>
                     <input
                       type="datetime-local"
                       name="deadline"
                       className="input"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label className="label text-white">Image URL</label>
+                    <input
+                      type="url"
+                      name="image"
+                      className="input"
+                      placeholder="My awesome page"
                     />
                   </div>
                 </div>
@@ -97,7 +159,7 @@ const AddEvents = () => {
                       <option value="" disabled>
                         Select a category
                       </option>
-                      
+
                       <option value="environment-nature">
                         Environment & Nature
                       </option>
@@ -141,6 +203,7 @@ const AddEvents = () => {
                       </option>
                     </select>
                   </div>
+
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Organizer Name</label>
                     <input
@@ -173,17 +236,35 @@ const AddEvents = () => {
                       placeholder="Enter Maximum Participants Number"
                     />
                   </div>
+                  <div>
+                    <div className="filter flex flex-col gap-2">
+                      <label className="label text-white">Event Status</label>
+                      <select
+                        name="status"
+                        className="select"
+                        defaultValue=""
+                      >
+                        <option value="" disabled>
+                          Select Your Event Status
+                        </option>
+                        <option value="physical">Upcoming</option>
+                        <option value="online">Register</option>
+                        <option value="online">Cancelled</option>
+                      </select>
+                    </div>
+                  </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Requirements</label>
                     <textarea
                       className="textarea"
-                      placeholder="Enter Your Requirements (Seperated by comma(,))"
+                      name="requirements"
+                      placeholder="Enter Requirements (Seperated by comma(,))"
                     ></textarea>
                   </div>
                 </div>
               </div>
-              <input type="submit" value="Submit" className="btn bg-black" />
+              <input type="submit" value="Add Event" className="btn bg-black" />
             </fieldset>
           </form>
         </div>
