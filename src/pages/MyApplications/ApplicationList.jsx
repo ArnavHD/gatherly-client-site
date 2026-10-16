@@ -3,6 +3,7 @@ import EventsApplicationRows from "./EventsApplicationRows";
 
 const ApplicationList = ({ myApplicationPromise }) => {
   const applications = use(myApplicationPromise);
+  
   return (
     <div>
       <h3 className="text-4xl">Jobs applied so far: {applications.length}</h3>

@@ -32,14 +32,14 @@ const ViewParticipants = () => {
     }
 
     return (
-      <div className='h-screen'>
+      <div className="h-screen">
         <h2>
           {applications.length} Participators for: {event_id}
         </h2>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto mx-96 mt-24">
           <table className="table">
             {/* head */}
-            <thead>
+            <thead className="bg-black">
               <tr>
                 <th></th>
                 <th>Name</th>
@@ -60,7 +60,7 @@ const ViewParticipants = () => {
                       defaultValue={application.status}
                       className="select"
                     >
-                      <option value={""} >Update Status</option>
+                      <option value={""}>Update Status</option>
                       <option value={"Pending"}>Pending</option>
                       <option value={"Interview"}>Called for interview</option>
                       <option value={"Hired"}>Hired</option>
