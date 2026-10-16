@@ -9,7 +9,7 @@ const ViewParticipants = () => {
     console.log(applications);
 
     const handleStatusChange = (e, app_id) =>{
-        console.log(e.target.value, app_id);
+        // console.log(e.target.value, app_id);
 
         axios
           .patch(
@@ -33,9 +33,9 @@ const ViewParticipants = () => {
 
     return (
       <div className="h-screen">
-        <h2>
+        {/* <h2>
           {applications.length} Participators for: {event_id}
-        </h2>
+        </h2> */}
         <div className="overflow-x-auto mx-96 mt-24">
           <table className="table">
             {/* head */}
@@ -52,7 +52,7 @@ const ViewParticipants = () => {
               {applications.map((application, index) => (
                 <tr key={application._id} className="bg-base-200">
                   <th>{index + 1}</th>
-                  <td>{application.applicant}</td>
+                  <td>{application.name}</td>
                   <td>Quality Control Specialist</td>
                   <td>
                     <select

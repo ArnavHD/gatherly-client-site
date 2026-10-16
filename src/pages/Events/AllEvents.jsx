@@ -3,7 +3,7 @@
 import EventCard from "../shared/EventCard";
 
 const AllEvents = ({ events }) => {
-    console.log(events);
+    console.log("This is events form all events",events);
   return (
     <div className="mt-32 mx-32">
         <h1 className="text-5xl libre mb-14 text-center text-black"> Our Upcoming Events</h1>

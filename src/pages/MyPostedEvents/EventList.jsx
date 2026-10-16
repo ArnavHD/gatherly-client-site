@@ -6,9 +6,9 @@ const EventList = ({ eventsCreatedBy }) => {
   const events = use(eventsCreatedBy);
   console.log(events);
   return (
-    <div>
-      <h2 className="text-3xl">Events Created by you: {events.length}</h2>
-      <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+    <div  className="h-screen">
+
+      <div className="overflow-x-auto mx-96 rounded-box border border-base-content/5 bg-base-100">
         <table className="table">
           {/* head */}
           <thead>
@@ -16,7 +16,7 @@ const EventList = ({ eventsCreatedBy }) => {
               <th>#</th>
               <th>Name</th>
               <th>Event Join Deadline</th>
-              <th>All Participants</th>
+              <th>View All Participants</th>
             </tr>
           </thead>
           <tbody>
@@ -28,7 +28,7 @@ const EventList = ({ eventsCreatedBy }) => {
 
                 <td>{event.deadline}</td>
                 <td>
-                  <Link to={`/applications/${event._id}`}>
+                  <Link className="btn bg-black/70" to={`/applications/${event._id}`}>
                     View Participants
                   </Link>
                 </td>

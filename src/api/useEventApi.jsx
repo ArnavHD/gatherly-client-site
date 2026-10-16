@@ -6,7 +6,7 @@ const useEventApi = () => {
 
     const eventsCreatedBy = email =>{
         return axiosSecure
-          .get(`/events?email=${email}`)
+          .get(`/my-events?email=${email}`)
           .then((res) => res.data);
     };
 
