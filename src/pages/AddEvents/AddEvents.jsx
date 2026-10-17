@@ -17,6 +17,7 @@ const AddEvents = () => {
       const eventData = {
         title: data.title,
         description: data.description,
+        category: data.category,
         location: {
           type: data.locationType,
           address: data.address,

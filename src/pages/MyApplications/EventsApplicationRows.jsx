@@ -2,6 +2,7 @@
 
 const EventsApplicationRows = ({ application, index }) => {
     // const {} = application;
+    console.log(application);
   return (
     <tr>
         <th>

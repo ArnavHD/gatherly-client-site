@@ -14,6 +14,7 @@ import MyApplications from "../pages/MyApplications/MyApplications";
 import AddEvents from "../pages/AddEvents/AddEvents";
 import MyPostedEvents from "../pages/MyPostedEvents/MyPostedEvents";
 import ViewParticipants from "../pages/ViewParticipants/ViewParticipants";
+import UpdateEvents from "../pages/UpdateEvents/UpdateEvents";
 
 const router = createBrowserRouter([
   {
@@ -55,10 +56,8 @@ const router = createBrowserRouter([
             <ViewParticipants></ViewParticipants>
           </PrivateRouts>
         ),
-        loader: ({params}) =>
-          fetch(
-            `http://localhost:3000/applications/event/${params.event_id}`,
-          ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/applications/event/${params.event_id}`),
       },
       {
         path: "myPostedEvents",
@@ -67,6 +66,12 @@ const router = createBrowserRouter([
             <MyPostedEvents></MyPostedEvents>
           </PrivateRouts>
         ),
+      },
+      {
+        path: "/updateEvents/:id",
+        element: <PrivateRouts><UpdateEvents></UpdateEvents></PrivateRouts>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/events/${params.id}`),
       },
     ],
   },

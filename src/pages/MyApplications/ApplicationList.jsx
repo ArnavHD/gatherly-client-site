@@ -6,7 +6,7 @@ const ApplicationList = ({ myApplicationPromise }) => {
   
   return (
     <div>
-      <h3 className="text-4xl">Jobs applied so far: {applications.length}</h3>
+      <h3 className="text-4xl text-center libre mt-10">Events applied so far: {applications.length}</h3>
 
       <div className="overflow-x-auto bg-black/50 mx-20 my-20">
         <table className="table">
