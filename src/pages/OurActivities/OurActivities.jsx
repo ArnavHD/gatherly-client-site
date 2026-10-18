@@ -25,7 +25,7 @@ const OurActivities = () => {
   const galleryImages = [...images, ...images, ...images];
 
   return (
-    <section className="bg-[#222c46] py-20 overflow-hidden">
+    <section className="bg-[#222c46]/20 py-20 overflow-hidden">
       <h2 className="text-4xl text-white text-center libre mb-12">Our Activities</h2>
 
       <Swiper

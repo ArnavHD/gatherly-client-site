@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: () => fetch("http://localhost:3000/events"),
       },
       {
         path: "/register",
@@ -69,7 +70,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateEvents/:id",
-        element: <PrivateRouts><UpdateEvents></UpdateEvents></PrivateRouts>,
+        element: (
+          <PrivateRouts>
+            <UpdateEvents></UpdateEvents>
+          </PrivateRouts>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/events/${params.id}`),
       },
