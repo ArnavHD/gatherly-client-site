@@ -15,6 +15,8 @@ import AddEvents from "../pages/AddEvents/AddEvents";
 import MyPostedEvents from "../pages/MyPostedEvents/MyPostedEvents";
 import ViewParticipants from "../pages/ViewParticipants/ViewParticipants";
 import UpdateEvents from "../pages/UpdateEvents/UpdateEvents";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,18 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/events/${params.id}`),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRouts>
+            <ProfilePage></ProfilePage>
+          </PrivateRouts>
+        ),
+      },
+      {
+        path: "/*",
+        Component: ErrorPage,
       },
     ],
   },

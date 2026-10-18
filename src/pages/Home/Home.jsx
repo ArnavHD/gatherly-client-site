@@ -6,6 +6,8 @@ import OurResponsibilities from "../OurResponsibilities/OurResponsibilities";
 import UpcomingEvents from "../UpcomingEvents/UpcomingEvents";
 import Banner from "./Banner";
 import WhyWeAreBest from "../WhyWeAreBest/WhyWeAreBest";
+import QnaSection from "../QnaSection/QnaSection";
+import Statistics from "../Statistics/Statistics";
 
 const Home = () => {
     const events = useLoaderData();
@@ -16,6 +18,8 @@ const Home = () => {
             <OurResponsibilities></OurResponsibilities>
             <OurActivities></OurActivities>
             <WhyWeAreBest></WhyWeAreBest>
+            <QnaSection></QnaSection>
+            <Statistics></Statistics>
         </div>
     );
 };

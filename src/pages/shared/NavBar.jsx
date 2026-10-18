@@ -178,12 +178,16 @@ const NavBar = () => {
             <button onClick={handleSignOut} className="btn">
               Sign Out
             </button>
-            <Link>
+            <Link to={"/profile"}>
               <img
-                className="rounded-full w-12 h-12"
-                src="https://i.ibb.co/1J2ZZ1MK/back-pic.jpg"
-                alt=""
-              />
+                  className="w-12 h-12 rounded-full object-cover"
+                  src={user?.photoURL || "/default-avatar.png"}
+                  alt="Profile"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "/default-avatar.png";
+                  }}
+                />
             </Link>
           </div>
         ) : (

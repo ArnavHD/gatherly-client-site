@@ -14,7 +14,7 @@ const WhyWeAreBest = () => {
           </h2>
         </div>
         <div className="grid grid-cols-3 mx-52 p-7 gap-5">
-          <div className="flex flex-col border-2 p-3 rounded-xl gap-3 bg-white/20 border-black/30 justify-center items-center">
+          <div className="flex flex-col border-2 p-3 rounded-xl gap-3 bg-gray-100 border-black/30 justify-center items-center">
             <div>
               <AiOutlineLayout color="black" size={45} />
             </div>
@@ -28,7 +28,7 @@ const WhyWeAreBest = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col p-3 border-2 rounded-xl gap-3 bg-white/20 border-black/30 justify-center items-center">
+          <div className="flex flex-col p-3 border-2 bg-gray-100 rounded-xl gap-3  border-black/30 justify-center items-center">
             <div>
               <FaGears color="black" size={45} />
             </div>
@@ -42,7 +42,7 @@ const WhyWeAreBest = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col p-3 rounded-xl gap-3 bg-white/20 border-black/30 border-2  justify-center items-center">
+          <div className="flex flex-col p-3 rounded-xl gap-3 bg-gray-100 border-black/30 border-2  justify-center items-center">
             <div>
               <MdOutlineCenterFocusStrong color="black" size={45} />
             </div>
@@ -56,7 +56,7 @@ const WhyWeAreBest = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col p-3 border-2 rounded-xl gap-3 bg-white/20 border-black/30 justify-center items-center">
+          <div className="flex flex-col p-3 border-2 rounded-xl gap-3 bg-gray-100 border-black/30 justify-center items-center">
             <div>
               <GiSatelliteCommunication color="black" size={45} />
             </div>
@@ -70,7 +70,7 @@ const WhyWeAreBest = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col p-3 border-2 rounded-xl gap-3 bg-white/20 border-black/30 justify-center items-center">
+          <div className="flex flex-col p-3 border-2 rounded-xl gap-3 bg-gray-100 border-black/30 justify-center items-center">
             <div>
               <MdSupportAgent color="black" size={45} />
             </div>
@@ -84,7 +84,7 @@ const WhyWeAreBest = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col p-3 border-2 rounded-xl gap-3 bg-white/20 border-black/30 justify-center items-center">
+          <div className="flex flex-col p-3 border-2 rounded-xl gap-3 bg-gray-100 border-black/30 justify-center items-center">
             <div>
               <GrUserExpert color="black" size={45} />
             </div>

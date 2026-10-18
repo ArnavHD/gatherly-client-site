@@ -48,7 +48,7 @@ const UpcomingEvents = ({events}) => {
           />
           <div className="tab-content mt-2 text-black  bg-base-100/10 p-10">
           {
-            pastEvents < 5 ? <div className="badge badge-secondary mb-5">Past{pastEvents.length} Events</div>: <div className="badge badge-secondary mb-5">Top 5 Events</div>
+            pastEvents.length < 5 ? <div className="badge badge-secondary mb-5">Past {pastEvents.length} Events</div>: <div className="badge badge-secondary mb-5">Top 5 Events</div>
           }
             
             <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-5">
