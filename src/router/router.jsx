@@ -17,6 +17,7 @@ import ViewParticipants from "../pages/ViewParticipants/ViewParticipants";
 import UpdateEvents from "../pages/UpdateEvents/UpdateEvents";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import Loading from "../pages/Loading/Loading";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () => fetch("http://localhost:3000/events"),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/register",
@@ -61,6 +63,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/applications/event/${params.event_id}`),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "myPostedEvents",
@@ -79,6 +82,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/events/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/profile",
@@ -103,6 +107,7 @@ const router = createBrowserRouter([
         index: true,
         Component: AllEventsContainer,
         loader: () => fetch("http://localhost:3000/events"),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "event/:id",
@@ -113,6 +118,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/events/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "joinEvent/:id",

@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router';
 
 const AllEventsContainer = () => {
     const events = useLoaderData();
-    console.log("This is events from events", events);
+    // console.log("This is events from events", events);
 
     const now = new Date();
 

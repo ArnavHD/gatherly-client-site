@@ -4,7 +4,7 @@ import PastEvents from "../PastEvents/PastEvents";
 import UpComingEvent from "./UpComingEvent";
 
 const UpcomingEvents = ({events}) => {
-    console.log("This is events",events);
+    // console.log("This is events",events);
     const now = new Date();
 
     const upComingEvents = events.filter((event) => new Date(event.eventDate) >= now)

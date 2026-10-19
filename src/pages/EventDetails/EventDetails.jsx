@@ -10,11 +10,11 @@ import {
   MdOutlineLocationOn,
 } from "react-icons/md";
 import { Link, useLoaderData, useParams } from "react-router";
-import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
 
 const EventDetails = () => {
   const { id: eventId } = useParams();
-  const {user} = useAuth();
+  // const {user} = useAuth();
   // console.log(eventId, user);
   const {
     title,
