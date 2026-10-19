@@ -18,7 +18,7 @@ const EventCard = ({event}) => {
     return (
       <div className="mx-auto card bg-base-100/60 shadow-sm">
         <figure className="px-10 pt-10">
-          <img src={image} alt="Shoes" className="rounded-xl w-full h-56" />
+          <img src={image} alt="Shoes" className="rounded-xl object-cover w-full h-56" />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>

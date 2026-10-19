@@ -13,7 +13,7 @@ const WhyWeAreBest = () => {
             Why We Are Your Best Choise
           </h2>
         </div>
-        <div className="grid grid-cols-3 mx-52 p-7 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-5 md:mx-52 md:p-7 gap-5">
           <div className="flex flex-col border-2 p-3 rounded-xl gap-3 bg-gray-100 border-black/30 justify-center items-center">
             <div>
               <AiOutlineLayout color="black" size={45} />

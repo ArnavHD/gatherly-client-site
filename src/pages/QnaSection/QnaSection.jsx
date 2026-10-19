@@ -2,7 +2,7 @@
 
 const QnaSection = () => {
     return (
-      <div className="mx-32 bg-white/60 rounded-xl mb-20 text-black p-20">
+      <div className="mx-5 md:mx-32 bg-white/60 rounded-xl mb-20 text-black p-5 md:p-20">
         <div>
             <h2 className="text-4xl mb-10 text-center libre">QNAs</h2>
         </div>

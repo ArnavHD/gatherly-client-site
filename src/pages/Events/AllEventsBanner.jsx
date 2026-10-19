@@ -6,7 +6,7 @@ const AllEventsBanner = () => {
   
   return (
     <div
-      className="relative h-[70vh] bg-no-repeat bg-center lg:bg-cover bg-contain"
+      className="relative h-[70vh] bg-no-repeat bg-center bg-cover"
       style={{
         backgroundImage:
           "url('https://i.ibb.co/HDCDNgn2/Twilight-Lantern-Lit-Outdoor-Dinner.png')",

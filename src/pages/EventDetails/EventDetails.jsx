@@ -38,7 +38,7 @@ const EventDetails = () => {
     minute: "2-digit",
   });
   return (
-    <div className="p-10">
+    <div className="p-5 md:p-10">
       <div className="card lg:card-side bg-base-100/80 shadow-sm">
         <figure>
           <img src={image} alt="Album" className="w-2xl" />
@@ -107,7 +107,7 @@ const EventDetails = () => {
             className="textarea textarea-md w-full bg-base-100/60 pointer-events-none"
           ></textarea>
 
-          <div className="flex gap-3.5">
+          <div className=" gap-3.5">
             <div className="flex gap-2.5 text-white/40">
               <DiRequirejs size={20} />
               <h2>Requirements:</h2>

@@ -18,64 +18,85 @@ const NavBar = () => {
     })
   }
   const links = (
-    <>
-      <div className="flex gap-2.5">
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "underline decoration-3 underline-offset-5" : ""
-            }
-            to={"/"}
-          >
-            <h3 className="">Home</h3>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "underline decoration-3 underline-offset-5" : ""
-            }
-            to={"/events"}
-          >
-            Events
-          </NavLink>
-        </li>
-        {user && (
-          <>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "underline decoration-3 underline-offset-5" : ""
-                }
-                to={"/addEvent"}
-              >
-                <h3 className="">Add Events</h3>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "underline decoration-3 underline-offset-5" : ""
-                }
-                to={"/myApplications"}
-              >
-                <h3 className="">My Applications</h3>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "underline decoration-3 underline-offset-5" : ""
-                }
-                to={"/myPostedEvents"}
-              >
-                <h3 className="">My Posted Events</h3>
-              </NavLink>
-            </li>
-          </>
-        )}
-      </div>
-    </>
+    <div className="">
+      {user ? (
+        <div className="flex flex-col md:flex-row md:items-center">
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline decoration-3 underline-offset-5" : ""
+              }
+              to={"/"}
+            >
+              <h3 className="">Home</h3>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline decoration-3 underline-offset-5" : ""
+              }
+              to={"/events"}
+            >
+              Events
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline decoration-3 underline-offset-5" : ""
+              }
+              to={"/addEvent"}
+            >
+              <h3 className="">Add Events</h3>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline decoration-3 underline-offset-5" : ""
+              }
+              to={"/myApplications"}
+            >
+              <h3 className="">My Applications</h3>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline decoration-3 underline-offset-5" : ""
+              }
+              to={"/myPostedEvents"}
+            >
+              <h3 className="">My Posted Events</h3>
+            </NavLink>
+          </li>
+        </div>
+      ) : (
+        <div className="flex md:flex-row flex-col">
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline decoration-3 underline-offset-5" : ""
+              }
+              to={"/"}
+            >
+              <h3 className="">Home</h3>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline decoration-3 underline-offset-5" : ""
+              }
+              to={"/events"}
+            >
+              Events
+            </NavLink>
+          </li>
+        </div>
+      )}
+    </div>
   );
   return (
     <div className="navbar px-7 bg-black shadow-sm">
@@ -104,29 +125,12 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={-1}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 text-white rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
         </div>
         <Link to={"/"}>
-          {/* <h3 className="text-4xl outfit">
-            <span className="text-blue-300 font-semibold">Gather</span>
-            <span className="text-orange-400 font-semibold">ly</span>
-          </h3> */}
-          {/* <motion.h1
-            className="text-4xl font-bold bg-linear-to-r from-white via-yellow-300 to-white bg-clip-text text-transparent bg-[length:200%_100%]"
-            animate={{
-              backgroundPosition: ["0% 50%", "200% 50%"],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            Gatherly
-          </motion.h1> */}
           <motion.h1
             className="
         text-4xl p-1 font-bold
@@ -165,40 +169,35 @@ const NavBar = () => {
           >
             Gatherly
           </motion.h1>
-          {/* <motion.div
-            className="w-16 h-2 bg-white"
-            animate={{ x: [0, 80, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-          ></motion.div> */}
         </Link>
       </div>
       <div className="navbar-end gap-4">
         {user ? (
-          <div className="flex justify-center items-center gap-4">
+          <div className="hidden md:flex justify-center items-center gap-4">
             <button onClick={handleSignOut} className="btn">
               Sign Out
             </button>
             <Link to={"/profile"}>
               <img
-                  className="w-12 h-12 rounded-full object-cover"
-                  src={user?.photoURL || "/default-avatar.png"}
-                  alt="Profile"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/default-avatar.png";
-                  }}
-                />
+                className="w-12 h-12 rounded-full object-cover"
+                src={user?.photoURL || "https://i.ibb.co/wvC3y3f/user.png"}
+                alt="Profile"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "https://i.ibb.co/wvC3y3f/user.png";
+                }}
+              />
             </Link>
           </div>
         ) : (
-          <>
+          <div className="hidden md:flex gap-3">
             <NavLink to={"/register"} className="btn">
               Register
             </NavLink>
             <NavLink to={"/login"} className="btn">
               Login
             </NavLink>
-          </>
+          </div>
         )}
       </div>
     </div>
