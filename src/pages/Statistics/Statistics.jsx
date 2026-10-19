@@ -27,7 +27,7 @@ const Statistics = () => {
               <h2 className="text-4xl font-bold text-black">
                 <CountUp
                   start={0}
-                  end={1297}
+                  end={1200}
                   duration={3.75}
                   separator=","
                   suffix="+"

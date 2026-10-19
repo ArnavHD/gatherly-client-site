@@ -61,7 +61,7 @@ const AddEvents = () => {
 
     return (
       <div
-        className="relative z-10 w-full pb-10 mx-auto bg-center pt-5 bg-cover bg-no-repeat"
+        className="relative z-10 w-full p-5 lg:pb-10 mx-auto bg-center pt-5 bg-cover bg-no-repeat"
         style={{
           backgroundImage:
             "url('https://i.ibb.co/Q3gNhY1f/Campus-Commons-Conversation.png')",
@@ -74,13 +74,13 @@ const AddEvents = () => {
           </h1>
           <form onSubmit={handleAddEvent} className=" max-w-2xl mx-auto">
             <fieldset className="fieldset bg-base-200/80 border-base-300 rounded-box  border p-4">
-              <div className="flex-col md:flex md:flex-row gap-3">
-                <div className="w-1/2 flex flex-col gap-3">
+              <div className="flex-col lg:flex md:flex-row gap-3">
+                <div className=" lg:w-1/2 flex flex-col gap-3">
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Title</label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       name="title"
                       placeholder="Enter your Event Title"
                     />
@@ -90,7 +90,7 @@ const AddEvents = () => {
                     <label className="label text-white">Description</label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       name="description"
                       placeholder="Enter Event Description"
                     />
@@ -100,7 +100,7 @@ const AddEvents = () => {
                     <label className="label text-white">Location Type</label>
                     <select
                       name="locationType"
-                      className="select"
+                      className="select w-full"
                       defaultValue=""
                     >
                       <option value="" disabled>
@@ -116,7 +116,7 @@ const AddEvents = () => {
                     <input
                       type="text"
                       name="address"
-                      className="input"
+                      className="input w-full"
                       placeholder="Enter Event Address"
                     />
                   </div>
@@ -126,7 +126,7 @@ const AddEvents = () => {
                     <input
                       type="datetime-local"
                       name="eventDate"
-                      className="input"
+                      className="input w-full"
                     />
                   </div>
 
@@ -135,7 +135,7 @@ const AddEvents = () => {
                     <input
                       type="datetime-local"
                       name="deadline"
-                      className="input"
+                      className="input w-full"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -143,19 +143,19 @@ const AddEvents = () => {
                     <input
                       type="url"
                       name="image"
-                      className="input"
+                      className="input w-full"
                       placeholder="My awesome page"
                     />
                   </div>
                 </div>
 
-                <div className="w-1/2 flex flex-col gap-3">
+                <div className="lg:w-1/2 flex flex-col gap-3">
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Event Category</label>
                     <select
                       defaultValue={""}
                       name="category"
-                      className="select"
+                      className="select w-full"
                     >
                       <option value="" disabled>
                         Select a category
@@ -209,7 +209,7 @@ const AddEvents = () => {
                     <label className="label text-white">Organizer Name</label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       name="name"
                       placeholder="Enter Organizer Name"
                     />
@@ -219,7 +219,7 @@ const AddEvents = () => {
                     <label className="label text-white">Organizer email</label>
                     <input
                       type="email"
-                      className="input"
+                      className="input w-full"
                       name="email"
                       value={user.email}
                       readOnly
@@ -232,7 +232,7 @@ const AddEvents = () => {
                     </label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       name="maxParticipants"
                       placeholder="Enter Maximum Participants Number"
                     />
@@ -242,7 +242,7 @@ const AddEvents = () => {
                       <label className="label text-white">Event Status</label>
                       <select
                         name="status"
-                        className="select"
+                        className="select w-full"
                         defaultValue=""
                       >
                         <option value="" disabled>
@@ -258,14 +258,18 @@ const AddEvents = () => {
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Requirements</label>
                     <textarea
-                      className="textarea"
+                      className="textarea w-full"
                       name="requirements"
                       placeholder="Enter Requirements (Seperated by comma(,))"
                     ></textarea>
                   </div>
                 </div>
               </div>
-              <input type="submit" value="Add Event" className="btn bg-black" />
+              <input
+                type="submit"
+                value="Add Event"
+                className="btn w-full bg-black"
+              />
             </fieldset>
           </form>
         </div>

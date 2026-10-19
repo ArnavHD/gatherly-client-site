@@ -15,7 +15,7 @@ import useAuth from "../../hooks/useAuth";
 const EventDetails = () => {
   const { id: eventId } = useParams();
   const {user} = useAuth();
-  console.log(eventId, user);
+  // console.log(eventId, user);
   const {
     title,
     description,

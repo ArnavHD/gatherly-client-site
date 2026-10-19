@@ -11,7 +11,7 @@ const NavBar = () => {
   const handleSignOut = ()=>{
     signOutUser()
     .then(()=>{
-      console.log("Signed out user", user);
+      // console.log("Signed out user", user);
     })
     .catch(error =>{
       console.log(error);
@@ -20,7 +20,7 @@ const NavBar = () => {
   const links = (
     <div className="">
       {user ? (
-        <div className="flex flex-col md:flex-row md:items-center">
+        <div className="flex flex-col lg:flex-row lg:items-center">
           <li>
             <NavLink
               className={({ isActive }) =>
@@ -71,6 +71,26 @@ const NavBar = () => {
               <h3 className="">My Posted Events</h3>
             </NavLink>
           </li>
+          <div className="flex p-2">
+            <li className="block md:hidden ">
+              <button onClick={handleSignOut} className="btn">
+                Sign Out
+              </button>
+            </li>
+            <li className="block md:hidden ">
+              <Link to={"/profile"}>
+                <img
+                  className="w-8 h-8 rounded-full object-cover"
+                  src={user?.photoURL || "https://i.ibb.co/wvC3y3f/user.png"}
+                  alt="Profile"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "https://i.ibb.co/wvC3y3f/user.png";
+                  }}
+                />
+              </Link>
+            </li>
+          </div>
         </div>
       ) : (
         <div className="flex md:flex-row flex-col">
@@ -179,7 +199,7 @@ const NavBar = () => {
             </button>
             <Link to={"/profile"}>
               <img
-                className="w-12 h-12 rounded-full object-cover"
+                className="w-10 h-10 rounded-full object-cover"
                 src={user?.photoURL || "https://i.ibb.co/wvC3y3f/user.png"}
                 alt="Profile"
                 onError={(e) => {

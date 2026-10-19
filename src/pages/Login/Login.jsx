@@ -9,12 +9,12 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state || '/';
-  console.log("Location in sign in page", location);
+  // console.log("Location in sign in page", location);
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         navigate(from || '/');
       })
       .catch((error) => {
@@ -27,12 +27,12 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     // sign in user
     userSignIn(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         navigate(from || '/');
       })
       .catch((error) => {

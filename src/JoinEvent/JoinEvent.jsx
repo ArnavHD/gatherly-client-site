@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const JoinEvent = () => {
     const {user } = useAuth();
     const {id: eventId} = useParams();
-    console.log(user, eventId);
+    // console.log(user, eventId);
 
     const handleJoinEvent = e =>{
         e.preventDefault();
@@ -15,7 +15,7 @@ const JoinEvent = () => {
         const name = form.name.value;
         const age = form.age.value;
         const email = form.email.value;
-        console.log(name, age, email);
+        // console.log(name, age, email);
 
 
         const application = {
@@ -27,7 +27,7 @@ const JoinEvent = () => {
         axios
           .post("http://localhost:3000/applications", application)
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.insertedId){
                 Swal.fire({
                   title: "Application Successful",

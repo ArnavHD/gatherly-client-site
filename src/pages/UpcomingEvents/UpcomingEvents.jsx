@@ -9,14 +9,14 @@ const UpcomingEvents = ({events}) => {
 
     const upComingEvents = events.filter((event) => new Date(event.eventDate) >= now)
     .sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate)).slice(0, 5);
-    console.log("This is upcoming events",upComingEvents);
+    // console.log("This is upcoming events",upComingEvents);
 
     const pastEvents = events.filter((event) => new Date(event.eventDate) < now)
     .sort((a,b) => new Date(b.eventDate) - new Date(a.eventDate));
 
 
     return (
-      <div className=" md:mx-40 bg-white md:p-10 mt-10 mb-10 rounded-2xl">
+      <div className=" md:mx-5 lg:mx-40 bg-white md:p-10 mt-10 mb-10 rounded-2xl">
         <h2 className="text-black pt-7 text-3xl libre text-center mb-7">
           Glimpse of Our Events
         </h2>

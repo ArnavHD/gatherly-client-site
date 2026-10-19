@@ -9,7 +9,7 @@ import { FaArrowLeft } from "react-icons/fa";
 const UpdateEvents = () => {
     const event = useLoaderData();
     const { user } = useAuth();
-    console.log(event);
+    // console.log(event);
     // console.log(user.email);
     const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const UpdateEvents = () => {
       const form = e.target;
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
-       console.log(data);
+      //  console.log(data);
 
       const eventData = {
         title: data.title,
@@ -62,7 +62,7 @@ const UpdateEvents = () => {
             });
           }
         });
-        console.log(eventData);
+        // console.log(eventData);
     };
 
     
@@ -81,21 +81,26 @@ const UpdateEvents = () => {
           </h1>
           <div className="flex justify-start">
             <div className="flex">
-              <button onClick={()=>{navigate(-1)}} className="btn ml-16 bg-white/50 text-black">
+              <button
+                onClick={() => {
+                  navigate(-1);
+                }}
+                className="btn mb-5 mt-5 ml-16 bg-white/50 text-black"
+              >
                 <FaArrowLeft size={22} color="black" />
                 <span>Go Back</span>
               </button>
             </div>
           </div>
-          <form onSubmit={handleUpdateEvent} className=" max-w-2xl mx-auto">
+          <form onSubmit={handleUpdateEvent} className=" max-w-2xl mx-5 md:mx-auto">
             <fieldset className="fieldset bg-base-200/80 border-base-300 rounded-box  border p-4">
-              <div className="flex-col md:flex md:flex-row gap-3">
-                <div className="w-1/2 flex flex-col gap-3">
+              <div className="flex-col lg:flex  md:flex-row gap-3">
+                <div className=" lg:w-1/2 flex flex-col gap-3">
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Title</label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       defaultValue={event.title}
                       name="title"
                       placeholder="Enter your Event Title"
@@ -106,7 +111,7 @@ const UpdateEvents = () => {
                     <label className="label text-white">Description</label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       defaultValue={event.description}
                       name="description"
                       placeholder="Enter Event Description"
@@ -117,7 +122,7 @@ const UpdateEvents = () => {
                     <label className="label text-white">Location Type</label>
                     <select
                       name="locationType"
-                      className="select"
+                      className="select w-full"
                       defaultValue={event.location.type}
                     >
                       <option value="" disabled>
@@ -134,7 +139,7 @@ const UpdateEvents = () => {
                       type="text"
                       name="address"
                       defaultValue={event.location.address}
-                      className="input"
+                      className="input w-full"
                       placeholder="Enter Event Address"
                     />
                   </div>
@@ -145,7 +150,7 @@ const UpdateEvents = () => {
                       type="datetime-local"
                       name="eventDate"
                       defaultValue={event.eventDate}
-                      className="input"
+                      className="input w-full"
                     />
                   </div>
 
@@ -155,7 +160,7 @@ const UpdateEvents = () => {
                       type="datetime-local"
                       name="deadline"
                       defaultValue={event.deadline}
-                      className="input"
+                      className="input w-full"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -164,19 +169,19 @@ const UpdateEvents = () => {
                       type="url"
                       name="image"
                       defaultValue={event.image}
-                      className="input"
+                      className="input w-full"
                       placeholder="My awesome page"
                     />
                   </div>
                 </div>
 
-                <div className="w-1/2 flex flex-col gap-3">
+                <div className="lg:w-1/2 flex flex-col gap-3">
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Event Category</label>
                     <select
                       name="category"
                       defaultValue={event.category}
-                      className="select"
+                      className="select w-full"
                     >
                       <option value="" disabled>
                         Select a category
@@ -230,7 +235,7 @@ const UpdateEvents = () => {
                     <label className="label text-white">Organizer Name</label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       defaultValue={event.organizer.name}
                       name="name"
                       placeholder="Enter Organizer Name"
@@ -241,7 +246,7 @@ const UpdateEvents = () => {
                     <label className="label text-white">Organizer email</label>
                     <input
                       type="email"
-                      className="input"
+                      className="input w-full"
                       name="email"
                       value={user?.email || " "}
                       readOnly
@@ -254,7 +259,7 @@ const UpdateEvents = () => {
                     </label>
                     <input
                       type="text"
-                      className="input"
+                      className="input w-full"
                       defaultValue={event.maxParticipants}
                       name="maxParticipants"
                       placeholder="Enter Maximum Participants Number"
@@ -265,7 +270,7 @@ const UpdateEvents = () => {
                       <label className="label text-white">Event Status</label>
                       <select
                         name="status"
-                        className="select"
+                        className="select w-full"
                         defaultValue={event.status}
                       >
                         <option value="" disabled>
@@ -281,7 +286,7 @@ const UpdateEvents = () => {
                   <div className="flex flex-col gap-2">
                     <label className="label text-white">Requirements</label>
                     <textarea
-                      className="textarea"
+                      className="textarea w-full"
                       defaultValue={event.requirements}
                       name="requirements"
                       placeholder="Enter Requirements (Seperated by comma(,))"
@@ -292,7 +297,7 @@ const UpdateEvents = () => {
               <input
                 type="submit"
                 value="Update Event"
-                className="btn bg-black"
+                className="btn bg-black w-full"
               />
             </fieldset>
           </form>

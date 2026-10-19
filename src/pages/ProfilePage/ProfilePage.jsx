@@ -6,8 +6,8 @@ import useAuth from '../../hooks/useAuth';
 const ProfilePage = () => {
     
     const {user, loading} = useAuth();
-    console.log(user);
-    console.log("Photo URL:", user?.photoURL);
+    // console.log(user);
+    // console.log("Photo URL:", user?.photoURL);
 
 
     if(loading){
@@ -30,11 +30,11 @@ const ProfilePage = () => {
               <div className="bg-white absolute top-42 left-10 lg:top-52 lg:left-32 p-2 lg:p-5 rounded-full">
                 <img
                   className="w-24 h-24 lg:w-56 lg:h-56 rounded-full object-cover"
-                  src={user?.photoURL || "/default-avatar.png"}
+                  src={user?.photoURL || "https://i.ibb.co/wvC3y3f/user.png"}
                   alt="Profile"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/default-avatar.png";
+                    e.currentTarget.src = "https://i.ibb.co/wvC3y3f/user.png";
                   }}
                 />
               </div>
@@ -46,7 +46,7 @@ const ProfilePage = () => {
                   <div>
                     {/* <Link to={"/update-profile"} */}
                     {/* className=" bg-black/60 text-white"> */}
-                    <button  className="btn bg-black/60 cursor-not-allowed text-white">
+                    <button className="btn bg-black/60 cursor-not-allowed text-white">
                       Update profile
                     </button>
                     {/* </Link> */}

@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const ViewParticipants = () => {
     const {event_id} = useParams();
     const applications = useLoaderData();
-    console.log(applications);
+    // console.log(applications);
 
     const handleStatusChange = (e, app_id) =>{
         // console.log(e.target.value, app_id);
@@ -17,7 +17,7 @@ const ViewParticipants = () => {
             { status: e.target.value },
           )
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.modifiedCount){
                 Swal.fire({
                   title: "Application Status Updated",

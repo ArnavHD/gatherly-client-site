@@ -6,9 +6,9 @@ import Swal from "sweetalert2";
 
 const EventList = ({ eventsCreatedBy }) => {
   const events = use(eventsCreatedBy);
-  console.log(events);
+  // console.log(events);
   const handleDelete = (_id) =>{
-    console.log(_id);
+    // console.log(_id);
 
     Swal.fire({
       title: "Are you sure?",
@@ -26,7 +26,7 @@ const EventList = ({ eventsCreatedBy }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("after delete", data);
+            // console.log("after delete", data);
             if(data.deletedCount){
               Swal.fire({
                 title: "Deleted!",
@@ -43,7 +43,7 @@ const EventList = ({ eventsCreatedBy }) => {
   }
   return (
     <div className="h-screen">
-      <div className="overflow-x-auto mx-96 rounded-box border border-base-content/5 bg-base-100">
+      <div className="overflow-x-auto mx-3 xl:mx-96 rounded-box border border-base-content/5 bg-base-100">
         <table className="table">
           {/* head */}
           <thead>
